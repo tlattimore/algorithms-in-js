@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "devDependencies": {
     "jest": "^22.4.3"
   },
