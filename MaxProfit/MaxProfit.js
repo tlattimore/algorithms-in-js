@@ -7,23 +7,28 @@ const MaxProfit = (prices) => {
   let maxProfit = -1;
   let buyPrice = 0;
   let sellPrice = 0;
-  let changeBuyPrice = true;
+  let shouldBuy = true;
 
   prices.forEach((num, i) => {
-    if (changeBuyPrice === true) {
+    // Perform the initial buy at the price
+    // in the prices list.
+    if (shouldBuy === true) {
       buyPrice = prices[i];
     }
 
+    // Set next price change in the list.
     sellPrice = prices[i + 1];
+    // If the price change is greater than the
+    // price set initially, go ahead and buy.
     if (sellPrice < buyPrice) {
-      changeBuyPrice = true;
+      shouldBuy = true;
     }
     else {
       let tempProfit = sellPrice - buyPrice;
       if (tempProfit > maxProfit) {
         maxProfit = tempProfit;
       }
-      changeBuyPrice = false;
+      shouldBuy = false;
     }
   });
 
