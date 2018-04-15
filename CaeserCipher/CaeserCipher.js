@@ -48,6 +48,4 @@ const CaeserCipher = (phrase, num) => {
   return newPhrase;
 }
 
-CaeserCipher('Zoo Keeper', 100);
-
 module.exports = CaeserCipher;
