@@ -4,19 +4,22 @@
  * @param {arr} Array - Array of numbers to add up.
  * @param {max} String - Value to check against.
  */
-let TwoSum = (arr, max) => {
-  let hashMap = {};
-  let results = [];
+let TwoSum = (numList, max) => {
+  let possibleCases = {};
+  let listOfSums= [];
 
-  arr.forEach((item, i) => {
-    if (hashMap[arr[i]]) {
-      results.push([hashMap[arr[i]], arr[i]]);
+  numList.forEach((number) => {
+    if (possibleCases[number]) {
+      listOfSums.push([possibleCases[number], number]);
     }
     else {
-      hashMap[max - arr[i]] = arr[i];
+      let keyForRow = max - number;
+      let valueForRow = number;
+      possibleCases[keyForRow] = valueForRow;
     }
   });
-  return results;
+
+  return listOfSums;
 }
 
 module.exports = TwoSum;
