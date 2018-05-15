@@ -13,6 +13,7 @@ let TwoSum = (numList, sum = 100) => {
     if (typeof possibleCases[number] !== 'undefined') {
       let currentPair = [possibleCases[number], number];
       let currentPairAsString = currentPair.toString();
+
       if (usedPairs.indexOf(currentPairAsString)) {
         results.push([possibleCases[number], number]);
       }
@@ -20,6 +21,7 @@ let TwoSum = (numList, sum = 100) => {
     else {
       let keyForRow = sum - number;
       let valueForRow = number;
+
       possibleCases[keyForRow] = valueForRow;
     }
   });
