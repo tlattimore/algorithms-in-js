@@ -4,22 +4,27 @@
  * @param {arr} Array - Array of numbers to add up.
  * @param {max} String - Value to check against.
  */
-let TwoSum = (numList, max) => {
+let TwoSum = (numList, sum = 100) => {
   let possibleCases = {};
-  let listOfSums= [];
+  let results = [];
+  let usedPairs = [];
 
   numList.forEach((number) => {
-    if (possibleCases[number]) {
-      listOfSums.push([possibleCases[number], number]);
+    if (typeof possibleCases[number] !== 'undefined') {
+      let currentPair = [possibleCases[number], number];
+      let currentPairAsString = currentPair.toString();
+      if (usedPairs.indexOf(currentPairAsString)) {
+        results.push([possibleCases[number], number]);
+      }
     }
     else {
-      let keyForRow = max - number;
+      let keyForRow = sum - number;
       let valueForRow = number;
       possibleCases[keyForRow] = valueForRow;
     }
   });
 
-  return listOfSums;
-}
+  return results;
+};
 
 module.exports = TwoSum;
