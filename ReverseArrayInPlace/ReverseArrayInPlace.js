@@ -1,14 +1,21 @@
 /**
  * Reverse an array without usig Array.reverse().
  *
- * @param {arr} arrray - the array to be reversed.
+ * @param {list} arrray - the array to be reversed.
  */
-const ReverseArrayInPlace = arr => {
-  for (let i =0; i < arr.length / 2; i++) {
-    let tempItem = arr[i];
-    arr[i] = arr[arr.length - 1 -i];
-    arr[arr.length - 1 -i] = tempItem;
+const ReverseArrayInPlace = list => {
+  const total = list.length;
+  const listMaxIndex = total - 1;
+  const limit = total / 2;
+
+  for (let currentIndex = 0; currentIndex < limit / 2; currentIndex++) {
+    let currentItem = list[currentIndex];
+    let indexToSwapWith = listMaxIndex - currentIndex;
+    list[currentIndex] = list[indexToSwapWith];
+    list[indexToSwapWith] = currentItem;
   }
-  return arr;
+
+  return list;
 };
+
 module.exports = ReverseArrayInPlace;
